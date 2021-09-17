@@ -7,8 +7,8 @@
 #' @details
 #' This function opens opens a shiny-based software that provides a range of
 #' statistical tools which can be useful for part characterization in iGEM.
-#' To get start with the software, please check the user manual and try to
-#' explore the software using test data \code{sPrcn}.
+#' Data used in this software should be database file formats with each column
+#' specifies a variable and each row for an observation.
 #' 
 #' @importFrom shiny fluidPage
 #' @importFrom shiny fluidRow
@@ -122,6 +122,7 @@
 #' @importFrom gstat fit.variogram
 #' @importFrom gstat vgm
 #' @importFrom gstat krige
+#' @importFrom shinythemes shinytheme
 #' 
 #' 
 #' @export
@@ -131,23 +132,24 @@
 #' ##  It will not stop until you close the window of "Expmeasure" GUI
 #' ##expmeasure()
 expmeasure <- function(){
-  #library(shiny)
-  #library(data.table)
-  #library(shinydashboard)  NOT USE
-  #library(shinyWidgets)
-  #library(plotly)
-  #library(agricolae)
-  #library(tidyverse)  NOT USE
-  #library(ggplot2)
-  #library(rgl)
-  #library(ggforce)
-  #library(ggpubr)
-  #library(car)
-  #library(sp)
-  #library(gstat)
-  #library(raster)
-  #library(fields)
-  #library(bootstrap)
+  # library(shiny)
+  # library(data.table)
+  # library(shinydashboard)  NOT USE
+  # library(shinyWidgets)
+  # library(plotly)
+  # library(agricolae)
+  # library(tidyverse)  NOT USE
+  # library(ggplot2)
+  # library(rgl)
+  # library(ggforce)
+  # library(ggpubr)
+  # library(car)
+  # library(sp)
+  # library(gstat)
+  # library(raster)
+  # library(fields)
+  # library(bootstrap)
+  # library(shinythemes)
   requireNamespace("shiny", quietly = T)
   requireNamespace("data.table", quietly = T)
   requireNamespace("plotly", quietly = T)
@@ -162,6 +164,7 @@ expmeasure <- function(){
   requireNamespace("raster", quietly = T)
   requireNamespace("fields", quietly = T)
   requireNamespace("bootstrap", quietly = T)
+  requireNamespace("shinythemes", quietly = T)
   
   expmeasure.ui <- function(){
     ui.home <- fluidPage(
@@ -197,7 +200,7 @@ expmeasure <- function(){
                      
                      uiOutput("trend_2DPlot_pick1d_explantory"),
                      width = 3),
-        mainPanel(plotlyOutput('trend_2DPlot_plot1', height = "600px"), width = 9)
+        mainPanel(plotlyOutput('trend_2DPlot_plot1', height = "700px"), width = 9)
       )
     )
     
@@ -239,7 +242,7 @@ expmeasure <- function(){
                      
                      uiOutput("trend_VioPlot_pick1d_explantory"),
                      width = 3),
-        mainPanel(plotlyOutput('trend_VioPlot_plot1', height = "600px"), width = 9)
+        mainPanel(plotlyOutput('trend_VioPlot_plot1', height = "700px"), width = 9)
       )
     )
     
@@ -338,7 +341,7 @@ expmeasure <- function(){
                      uiOutput("significance_k_pick1d_explantory"),
                      uiOutput("significance_k_pick2d_level"),
                      width = 3),
-        mainPanel(plotlyOutput('significance_k_plot1', height = "600px"),
+        mainPanel(plotlyOutput('significance_k_plot1', height = "700px"),
                   width = 9)
       )
     )
@@ -398,7 +401,7 @@ expmeasure <- function(){
                      ),
                      width = 3),
         mainPanel(tableOutput('significance_residue_tb1'),
-                  plotlyOutput('significance_residue_plot1', height = "600px"),
+                  plotlyOutput('significance_residue_plot1', height = "700px"),
                   width = 9)
       )
     )
@@ -513,7 +516,7 @@ expmeasure <- function(){
                        fill = TRUE
                      ),
                      width = 3),
-        mainPanel(plotlyOutput('prediction_trend_plot1', height = "600px"),
+        mainPanel(plotlyOutput('prediction_trend_plot1', height = "700px"),
                   width = 9)
       )
     )
@@ -531,7 +534,7 @@ expmeasure <- function(){
                      uiOutput("prediction_spline_pick1d_explantory"),
                      uiOutput("prediction_spline_pick2d_explantory"),
                      width = 3),
-        mainPanel(plotlyOutput('prediction_spline_plot1', height = "600px"),
+        mainPanel(plotlyOutput('prediction_spline_plot1', height = "700px"),
                   width = 9)
       )
     )
@@ -555,7 +558,7 @@ expmeasure <- function(){
                        grid = TRUE
                      ),
                      width = 3),
-        mainPanel(plotlyOutput('prediction_inverse_plot1', height = "600px"),
+        mainPanel(plotlyOutput('prediction_inverse_plot1', height = "700px"),
                   width = 9)
       )
     )
@@ -574,7 +577,7 @@ expmeasure <- function(){
                      uiOutput("prediction_simmov_pick2d_explantory"),
                      uiOutput("prediction_simmov_slider1d_R"),
                      width = 3),
-        mainPanel(plotlyOutput('prediction_simmov_plot1', height = "600px"),
+        mainPanel(plotlyOutput('prediction_simmov_plot1', height = "700px"),
                   width = 9)
       )
     )
@@ -592,7 +595,7 @@ expmeasure <- function(){
                      uiOutput("prediction_krigging_pick1d_explantory"),
                      uiOutput("prediction_krigging_pick2d_explantory"),
                      width = 3),
-        mainPanel(plotlyOutput('prediction_krigging_plot1', height = "600px"),
+        mainPanel(plotlyOutput('prediction_krigging_plot1', height = "700px"),
                   width = 9)
       )
     )
@@ -610,7 +613,7 @@ expmeasure <- function(){
                      uiOutput("uncertainty_TNE_pick1d_explantory"),
                      uiOutput("uncertainty_TNE_pick2d_explantory"),
                      width = 3),
-        mainPanel(plotlyOutput('uncertainty_TNE_plot1', height = "600px"),
+        mainPanel(plotlyOutput('uncertainty_TNE_plot1', height = "700px"),
                   width = 9)
       )
     )
@@ -633,12 +636,13 @@ expmeasure <- function(){
                        choices = seq(10,200,5)
                      ),
                      width = 3),
-        mainPanel(plotlyOutput('uncertainty_TNEsimu_plot1', height = "600px"),
+        mainPanel(plotlyOutput('uncertainty_TNEsimu_plot1', height = "700px"),
                   width = 9)
       )
     )
     
     ui.overall <- navbarPage("expmeasures",
+                             theme = shinytheme("flatly"),
                              tabPanel("Home", ui.home),
                              tabPanel("Data", ui.data),
                              
@@ -679,7 +683,12 @@ expmeasure <- function(){
                                         tabPanel("T/E Simu", ui.uncertainty.TNEsimu)
                              ),
                              
-                             tabPanel("Quit")
+                             navbarMenu("Quit",
+                                        tabPanel(actionLink("stop_radiant", "Stop", icon = icon("power-off"), 
+                                                            onclick = "setTimeout(function(){window.close();}, 100); ")
+                                        )
+                                        
+                             )
     )
     
     ui.overall
@@ -2075,7 +2084,7 @@ expmeasure <- function(){
       Xs <- as.numeric(scale(dat.ave[,1]))
       Ys <- as.numeric(scale(dat.ave[,2]))
       res <- krige.interpolate(data.frame(X = Xs, Y = Ys),dat.ave[,3]) #modi
-      rid <- SpatialPoints(res$krigging)@coords
+      grid <- SpatialPoints(res$krigging)@coords
       value <- res[["krigging"]]@data$var1.pred
       to.plot <- as.data.frame(cbind(grid,value))
       names(to.plot) <- c("var1","var2","Predicted")
@@ -2126,6 +2135,7 @@ expmeasure <- function(){
       if(!is.na(var2)){
         base <- dat[(dat[[var1]]=="0" | dat[[var1]] == "CK") & 
                       (dat[[var2]]=="0" | dat[[var2]] == "CK"),][[y]]
+        if(length(base)==1){stop("Not enough observations")}
         base_sem <- sem(base)
         sign_sem <- aggregate(dat[[y]],by=list(var1=dat[[var1]],var2=dat[[var2]]),sem)
         sign_sem[,3] <- sign_sem[,3]/base_sem
@@ -2133,6 +2143,7 @@ expmeasure <- function(){
         plot_ly(data = sign_sem, x=~var1, y=~var2, z=~TNE) %>% add_markers()
       } else{
         base <- dat[(dat[[var1]]=="0" | dat[[var1]] == "CK"),][[y]]
+        if(length(base)==1){stop("Not enough observations")}
         base_sem <- sem(base)
         sign_sem <- aggregate(dat[[y]],by=list(var1=dat[[var1]]),sem)
         sign_sem[,2] <- sign_sem[,2]/base_sem
@@ -2273,5 +2284,5 @@ expmeasure <- function(){
   }
   ui <- expmeasure.ui()
   server <- server.home
-  shinyApp(ui, server)
+  shinyApp(ui, server, options = list(launch.browser = T))
 }

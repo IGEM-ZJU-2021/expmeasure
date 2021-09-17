@@ -1,20 +1,19 @@
 Package: expmeasure
 Type: Package
-Title: Statistical tookit for part characterization
-Version: 1.0
+Title: Statistical Toolkit for Part Characterization
+Version: 1.2
 Date: 2021-8-22
 Author: Wu Hao-Ran
 Maintainer: Wu Hao-Ran <haoranwu@zju.edu.cn>
-Description: This package provides a graphical user interface to analyse data
-	in wet experiments. In particular, all iGEMers are welcome to use this
+Description: Provide a graphical user interface to analyse data
+	in wet experiments. In particular, all participants in the International 
+	Genetically Engineered Machine competition are welcome to use this
 	package for part characterization. Statistical methods in this package
-	includes GLMs, ANOVA, geostatistics, and a couple of noval summary statistics.
-	For more details, please check our wiki at https://2021.igem.org/Team:ZJU-China/Software.
-LazyData: true
+	includes GLMs, ANOVA, and a couple of summary statistics.
 Imports: shiny, data.table, shinyWidgets, plotly, agricolae, utils,
         methods, ggplot2, rgl, ggforce, ggpubr, car, sp, gstat, raster,
-        fields, stats, graphics, bootstrap
+        fields, stats, graphics, bootstrap, shinythemes
 License: GPL-3
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-08-23 00:04:36 UTC; Lenovo
+Packaged: 2021-09-16 15:03:22 UTC; Lenovo

@@ -13,8 +13,8 @@ analyse their data in part characterization experiments.
 \details{
 This function opens opens a shiny-based software that provides a range of
 statistical tools which can be useful for part characterization in iGEM.
-To get start with the software, please check the user manual and try to
-explore the software using test data \code{sPrcn}.
+Data used in this software should be database file formats with each column
+specifies a variable and each row for an observation.
 }
 \examples{
 ##Once you execute the following function
