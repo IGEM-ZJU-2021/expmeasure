@@ -19,7 +19,9 @@ specifies a variable and each row for an observation.
 \examples{
 ##Once you execute the following function
 ##  It will not stop until you close the window of "Expmeasure" GUI
-##expmeasure()
+\dontrun{
+expmeasure()
+}
 }
 \author{
 Wu Hao-Ran <haoranwu@zju.edu.cn>

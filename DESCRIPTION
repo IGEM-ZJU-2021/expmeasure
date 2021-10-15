@@ -14,6 +14,6 @@ Imports: shiny, data.table, shinyWidgets, plotly, agricolae, utils,
         methods, ggplot2, rgl, ggforce, ggpubr, car, sp, gstat, raster,
         fields, stats, graphics, bootstrap, shinythemes
 License: GPL-3
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2021-09-16 15:03:22 UTC; Lenovo
+Packaged: 2021-10-15 13:01:03 UTC; Lenovo

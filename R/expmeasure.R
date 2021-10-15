@@ -123,6 +123,8 @@
 #' @importFrom gstat vgm
 #' @importFrom gstat krige
 #' @importFrom shinythemes shinytheme
+#' @importFrom shiny icon
+#' @importFrom shiny actionLink
 #' 
 #' 
 #' @export
@@ -130,7 +132,9 @@
 #' @examples
 #' ##Once you execute the following function
 #' ##  It will not stop until you close the window of "Expmeasure" GUI
-#' ##expmeasure()
+#' \dontrun{
+#' expmeasure()
+#' }
 expmeasure <- function(){
   # library(shiny)
   # library(data.table)
